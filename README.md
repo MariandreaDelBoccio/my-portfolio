@@ -47,6 +47,6 @@ MIT License - feel free to use this portfolio as inspiration!
 
 ## 🤝 Connect
 
-- [LinkedIn: ](https://www.linkedin.com/in/mariandreadelboccio/)
-- [GitHub: ](https://github.com/MariandreaDelBoccio)
+- [LinkedIn](https://www.linkedin.com/in/mariandreadelboccio/)
+- [GitHub](https://github.com/MariandreaDelBoccio)
 - Email: maridelboccio@gmail.com
