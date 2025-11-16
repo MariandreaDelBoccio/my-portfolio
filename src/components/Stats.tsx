@@ -3,7 +3,7 @@ import { DarkMode } from "../types";
 const Stats = ({ darkMode }: DarkMode) => {
   const stats = [
     { number: "5+", label: "Years Experience" },
-    { number: "10+", label: "Documentatio Guides Written" },
+    { number: "10+", label: "Documentation Guides Written" },
     { number: "50+", label: "Code Reviews Completed" },
     { number: "90%", label: "Test Coverage" },
   ];
