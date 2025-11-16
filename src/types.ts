@@ -12,3 +12,7 @@ export interface NavbarProps {
   activeSection: "home" | "projects";
   setActiveSection: (section: "home" | "projects") => void;
 }
+
+export type DarkMode = {
+  darkMode: boolean;
+};
