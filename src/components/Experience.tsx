@@ -16,13 +16,10 @@ const Experience = ({ darkMode }: DarkMode) => {
       </h2>
       <div className="max-w-4xl mx-auto">
         {experience.map((exp, index) => (
-          <div key={index} className="relative pl-8 pb-12 last:pb-0">
+          <div key={index} className="relative pl-0 md:pl-8 pb-12 last:pb-0">
             <div
-              className={`absolute left-0 top-0 w-4 h-4 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 ${
-                index !== experience.length - 1
-                  ? "after:absolute after:top-4 after:left-1/2 after:-translate-x-1/2 after:w-0.5 after:h-full after:bg-gradient-to-b after:from-purple-500 after:to-transparent"
-                  : ""
-              }`}
+              className="invisible md:visible absolute left-0 top-0 w-4 h-4 rounded-full bg-gradient-to-br from-purple-500 to-pink-500
+                after:absolute after:top-4 after:left-1/2 after:-translate-x-1/2 after:w-0.5 after:h-full after:bg-gradient-to-b after:from-purple-500 after:to-transparent"
             />
             <div
               className={`${

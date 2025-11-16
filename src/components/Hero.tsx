@@ -6,8 +6,12 @@ const Hero = ({ darkMode }: DarkMode) => {
   return (
     <div className="text-center mb-20">
       <div className="mb-8 relative inline-block">
-        <div className="w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mx-auto mb-6 animate-pulse" />
-        <div className="absolute inset-0 w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mx-auto blur-xl opacity-50" />
+        <img
+          src="/profile.jpeg"
+          alt="Profile"
+          className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-purple-500 relative z-10"
+        />
+        <div className="absolute inset-0 w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mx-auto blur-xl opacity-50 animate-pulse" />
       </div>
 
       <h1
@@ -27,7 +31,7 @@ const Hero = ({ darkMode }: DarkMode) => {
         Passionate about clean code, user experience, and continuous learning.
       </p>
 
-      <div className="flex justify-center space-x-4 mb-8">
+      <div className="grid space-y-4 md:flex justify-center md:space-x-4 md:space-y-0 mb-8">
         <a
           href="mailto:maridelboccio@gmail.com"
           className="group flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full hover:scale-105 transition-transform"
