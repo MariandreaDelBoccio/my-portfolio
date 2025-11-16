@@ -1,4 +1,3 @@
-import React from "react";
 import { Mail, Github, Linkedin, MapPin } from "lucide-react";
 import { DarkMode } from "../types";
 
@@ -7,7 +6,7 @@ const Hero = ({ darkMode }: DarkMode) => {
     <div className="text-center mb-20">
       <div className="mb-8 relative inline-block">
         <img
-          src="/profile.jpeg"
+          src="/my-portfolio/profile.jpeg"
           alt="Profile"
           className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-4 border-purple-500 relative z-10"
         />
