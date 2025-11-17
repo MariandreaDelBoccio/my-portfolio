@@ -16,3 +16,16 @@ export interface NavbarProps {
 export type DarkMode = {
   darkMode: boolean;
 };
+
+export interface ProjectCardProps {
+  project: {
+    title: string;
+    description: string;
+    tech: string[];
+    github: string;
+    demo: string;
+    gradient: string;
+  };
+  darkMode: boolean;
+}
+
