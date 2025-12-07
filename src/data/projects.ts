@@ -17,4 +17,13 @@ export const projects = [
     demo: 'https://mariandreadelboccio.github.io/aurora-ui/',
     gradient: 'from-blue-500 to-cyan-500',
   },
+  {
+    title: 'Interactive Advent Calendar',
+    description:
+      "Gamified web app inspired by Ibai Llanos' advent calendar. Features 7 unique games, achievement system, points and streaks, interactive maps, and mobile-first experience with smooth animations.",
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Zustand', 'Framer Motion', 'Leaflet'],
+    github: 'https://github.com/MariandreaDelBoccio/advent-calendar',
+    demo: 'https://mariandreadelboccio.github.io/advent-calendar/',
+    gradient: 'from-purple-600 to-pink-500',
+  },
 ];

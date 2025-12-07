@@ -16,7 +16,7 @@ const ProjectCard = ({ project, darkMode }: ProjectCardProps) => {
             </div>
             <div>
               <h3
-                className={`text-2xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'} group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:${project.gradient} group-hover:bg-clip-text transition-all`}
+                className={`text-2xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-900'} transition-all`}
               >
                 {project.title}
               </h3>
