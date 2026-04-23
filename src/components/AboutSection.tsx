@@ -6,12 +6,10 @@ const AboutSection = () => {
   const scroll = useParallax();
   const { t } = useTranslation();
 
-  const stats = [
-    { value: "8+", label: t("stats.experience") },
-    { value: "50+", label: t("stats.projects") },
-    { value: "30+", label: t("stats.clients") },
-    { value: "15", label: t("stats.awards") },
-  ];
+  const stats = t("stats.items", { returnObjects: true }) as {
+    value: string;
+    label: string;
+  }[];
 
   return (
     <section id="about" className="py-32 relative overflow-hidden">

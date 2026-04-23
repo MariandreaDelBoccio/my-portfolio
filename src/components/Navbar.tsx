@@ -58,7 +58,7 @@ const Navbar = () => {
             href="#contact"
             className="hidden md:inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:opacity-90 hover:scale-105"
           >
-            Hablemos
+            {t("navbar.cta")}
           </a>
           <button
             onClick={() =>

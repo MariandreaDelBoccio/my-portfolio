@@ -1,4 +1,23 @@
-const words = ["React", "TypeScript", "Figma", "Tailwind", "Next.js", "Motion", "UX Research", "Design Systems", "Accessibility", "React", "TypeScript", "Figma", "Tailwind", "Next.js", "Motion", "UX Research", "Design Systems", "Accessibility"];
+const words = [
+  "React",
+  "TypeScript",
+  "Node",
+  "Tailwind",
+  "Next.js",
+  "Serverless",
+  "Design systems",
+  "Accessibility",
+  "Product",
+  "React",
+  "TypeScript",
+  "Node",
+  "Tailwind",
+  "Next.js",
+  "Serverless",
+  "Design systems",
+  "Accessibility",
+  "Product",
+];
 
 const MarqueeSection = () => (
   <div className="py-8 border-y border-border overflow-hidden">

@@ -5,7 +5,6 @@ import AboutSection from "@/components/AboutSection";
 import ScrollyRedesignSection from "@/components/ScrollyRedesignSection";
 import ScrollyDisgenetSection from "@/components/ScrollyDisgenetSection";
 import ScrollyMaiaSection from "@/components/ScrollyMaiaSection";
-import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -17,10 +16,11 @@ const Index = () => {
       <HeroSection />
       <MarqueeSection />
       <AboutSection />
-      <ScrollyRedesignSection />
-      <ScrollyDisgenetSection />
-      <ScrollyMaiaSection />
-      <ProjectsSection />
+      <div id="use-cases" className="scroll-mt-20">
+        <ScrollyRedesignSection />
+        <ScrollyDisgenetSection />
+        <ScrollyMaiaSection />
+      </div>
       <SkillsSection />
       <ContactSection />
       <Footer />

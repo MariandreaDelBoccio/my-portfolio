@@ -1,11 +1,11 @@
 {
   "hero": {
-    "title": "I create interfaces",
-    "subtitle": "to fall in love with",
-    "description": "Frontend Developer & UX/UI Designer creating memorable digital experiences with clean code and user-centered design.",
-    "cta1": "View projects",
+    "title": "I build interfaces",
+    "subtitle": "that people love to use",
+    "description": "I’m a frontend developer with 6+ years in product teams. I ship clear, modern UIs with strong product sense, and I love turning ideas into user-friendly features. I can help with light Node and serverless work, but the frontend is what I do best. Open to both freelance and in-house opportunities.",
+    "cta1": "View use cases",
     "cta2": "Get to know me",
-    "available": "Available for projects"
+    "available": "Available for freelance & teams"
   },
   "about": {
     "title": "Where ",
@@ -16,24 +16,24 @@
       "code": "code"
     },
     "where": "Where design meets code",
-    "description": "I'm Mariandrea, a frontend developer and UX/UI designer passionate about creating digital experiences that not only look amazing but work flawlessly. I combine design thinking with clean and efficient code. My focus is on understanding users, prototyping creative solutions, and building interfaces that tell stories. Every pixel has a purpose, every interaction counts.",
-    "subdescription": "My focus is on understanding users, prototyping creative solutions, and building interfaces that tell stories. Every pixel has a purpose, every interaction counts."
+    "description": "I’m Mariandrea, a frontend developer. I’m not a full-time web designer, and I wouldn’t compare my visual craft to a dedicated UI specialist—but in every role I’ve been the one who ends up leading interface work when there isn’t a separate designer, and teams have always been very happy with the result. I care about how things look and how they work.",
+    "subdescription": "I’m at my best shipping features in a modern, accessible stack, with solid judgment on product and UX. I also write Node and serverless when the product needs it, but I don’t manage databases—frontend is the work I want to do every day. My background is 100% in-house: I don’t have a public freelance project list, because I’ve always worked in companies, not as a solo contractor, and I don’t have a trophy shelf—just consistent delivery in real products."
   },
   "stats": {
-    "experience": "Years of experience",
-    "projects": "Projects delivered",
-    "clients": "Happy clients",
-    "awards": "Design awards"
+    "items": [
+      { "value": "6+", "label": "Years in product teams" },
+      { "value": "Sync", "label": "With product, design & engineering" },
+      { "value": "Node", "label": "Serverless & light backend" },
+      { "value": "Product", "label": "Features, UX, and ideas" }
+    ]
   },
   "navbar": {
     "title": "Mariandrea.dev",
+    "cta": "Let’s talk",
     "items": [
       { "href": "#hero", "label": "Home" },
       { "href": "#about", "label": "About" },
-      { "href": "#case-study", "label": "MedBio" },
-      { "href": "#case-study-disgenet", "label": "DISGENET" },
-      { "href": "#case-study-maia", "label": "MAIA" },
-      { "href": "#projects", "label": "Projects" },
+      { "href": "#use-cases", "label": "Use cases" },
       { "href": "#skills", "label": "Skills" },
       { "href": "#contact", "label": "Contact" }
     ]
@@ -116,15 +116,42 @@
     "visitSiteLabel": "View live site",
     "noPublicLinkNote": "No public URL—design preview only."
   },
-  "projects": {
-    "title": "Projects",
-    "badge": "More projects",
-    "description": "Selected",
-    "subtitle": "work",
-    "scrollyIntro": "Alongside the case studies above (MedBio, DISGENET, and the MAIA assistant), a few more sample pieces (placeholders)."
-  },
   "skills": {
-    "title": "Skills",
-    "description": "Here are some of the skills I've developed."
+    "kicker": "Skills",
+    "title": "What I do ",
+    "titleGradient": "best",
+    "items": [
+      {
+        "title": "Frontend development",
+        "description": "React, TypeScript, modern tools—clean, maintainable UIs in production codebases."
+      },
+      {
+        "title": "Product & features",
+        "description": "I enjoy discovering how to turn product goals into shippable, user-friendly features."
+      },
+      {
+        "title": "UI & strong UX",
+        "description": "I’m a developer first, but I own interface quality when there’s no designer in the room."
+      },
+      {
+        "title": "Design systems",
+        "description": "Reusable components, shared patterns, and consistent UI for growing products."
+      },
+      {
+        "title": "Node & serverless",
+        "description": "Lightweight endpoints and serverless when the product needs it—not deep database or infra work; frontend stays my main lane."
+      },
+      {
+        "title": "Performance & quality",
+        "description": "Practical web performance, accessibility awareness, and maintainable code."
+      }
+    ]
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title1": "A conversation",
+    "title2": "starts with hello",
+    "description": "If the fit is there—project, long-term, or in-house—I’m easy to reach. A few lines of context is enough; we take it from there.",
+    "email": "maridelboccio@gmail.com"
   }
 }

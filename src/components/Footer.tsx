@@ -5,9 +5,18 @@ const Footer = () => (
         Mariandrea<span className="text-gradient">.dev</span>
       </span>
       <div className="flex items-center gap-6">
-        {["LinkedIn", "GitHub", "Dribbble", "Twitter"].map((s) => (
-          <a key={s} href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300">
-            {s}
+        {[
+          { label: "LinkedIn", href: "https://www.linkedin.com/in/mariandreadelboccio/" },
+          { label: "GitHub", href: "https://github.com/MariandreaDelBoccio" },
+        ].map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+          >
+            {link.label}
           </a>
         ))}
       </div>

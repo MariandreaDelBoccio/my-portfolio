@@ -1,11 +1,11 @@
 {
   "hero": {
-    "title": "Diseño interfaces",
-    "subtitle": "que enamoran",
-    "description": "Frontend Developer & UX/UI Designer creando experiencias digitales memorables con código limpio y diseño centrado en el usuario.",
-    "cta1": "Ver proyectos",
+    "title": "Construyo interfaces",
+    "subtitle": "con las que la gente disfruta",
+    "description": "Soy desarrolladora frontend con más de 6 años en equipos de producto. Construyo UIs actuales y claras, con criterio de producto, y me encanta pasar de la idea a una feature usable y amigable. Puedo apoyar en Node y entornos serverless cuando toca, pero el frontend es lo que realmente me motiva. Abierta a freelance y a incorporarme en empresa.",
+    "cta1": "Ver casos de estudio",
     "cta2": "Conóceme",
-    "available": "Disponible para proyectos"
+    "available": "Disponible · freelance y equipos"
   },
   "about": {
     "subtitle": "Sobre mí",
@@ -15,24 +15,25 @@
       "separator": "se encuentra con el ",
       "code": "código"
     },
-    "description": "Soy Mariandrea, una desarrolladora frontend y diseñadora UX/UI apasionada por crear experiencias digitales que no solo se ven increíbles, sino que funcionan de manera impecable. Combino pensamiento de diseño con código limpio y eficiente. Mi enfoque se centra en entender a los usuarios, prototipar soluciones creativas y construir interfaces que cuentan historias. Cada pixel tiene un propósito, cada interacción cuenta.",
-    "subdescription": "Mi enfoque se centra en entender a los usuarios, prototipar soluciones creativas y construir interfaces que cuentan historias. Cada pixel tiene un propósito, cada interacción cuenta."
+    "where": "Where design meets code",
+    "description": "Soy Mariandrea, desarrolladora frontend. No soy diseñadora web a tiempo completo ni me compararía con alguien dedicado en exclusiva al UI visual—pero en cada puesto he sido quien asume el interfaz cuando no hay figura de diseño, y en todas las empresas en las que he estado han quedado muy contentas. Me importa tanto el aspecto como el funcionamiento.",
+    "subdescription": "Donde más aporto es implementando en stacks modernos y accesibles, con criterio de producto y buena mano con la experiencia de uso. También programo en Node o serverless cuando hace falta, pero no gestiono bases de datos: el día a día quiero que sea frontend. Llevo toda la carrera en empresa: no tengo lista de “proyectos de portfolio” en freelance porque no he trabajado como autónoma, y no colecciono premios; sí trayectoria constante en producto real."
   },
   "stats": {
-    "experience": "Años de experiencia",
-    "projects": "Proyectos entregados",
-    "clients": "Clientes felices",
-    "awards": "Premios de diseño"
+    "items": [
+      { "value": "6+", "label": "Años en equipos de producto" },
+      { "value": "En equipo", "label": "Con producto, diseño e ingeniería" },
+      { "value": "Node", "label": "Serverless y backend ligero" },
+      { "value": "Producto", "label": "Features, UX e ideas" }
+    ]
   },
   "navbar": {
     "title": "Mariandrea.dev",
+    "cta": "Hablemos",
     "items": [
       { "href": "#hero", "label": "Inicio" },
       { "href": "#about", "label": "Sobre mí" },
-      { "href": "#case-study", "label": "MedBio" },
-      { "href": "#case-study-disgenet", "label": "DISGENET" },
-      { "href": "#case-study-maia", "label": "MAIA" },
-      { "href": "#projects", "label": "Proyectos" },
+      { "href": "#use-cases", "label": "Casos de estudio" },
       { "href": "#skills", "label": "Habilidades" },
       { "href": "#contact", "label": "Contacto" }
     ]
@@ -115,15 +116,42 @@
     "visitSiteLabel": "Ver el sitio en vivo",
     "noPublicLinkNote": "Proyecto sin enlace público; solo visión de diseño."
   },
-  "projects": {
-    "title": "Proyectos",
-    "badge": "Más proyectos",
-    "description": "Trabajo",
-    "subtitle": "seleccionado",
-    "scrollyIntro": "Junto a los casos de estudio (MedBio, DISGENET y el asistente MAIA) de arriba, otras piezas de ejemplo (placeholder)."
-  },
   "skills": {
-    "title": "Habilidades",
-    "description": "Aquí están algunas de las habilidades que he desarrollado."
+    "kicker": "Habilidades",
+    "title": "Lo que hago ",
+    "titleGradient": "mejor",
+    "items": [
+      {
+        "title": "Desarrollo frontend",
+        "description": "React, TypeScript, herramientas actuales: interfaces mantenibles en codebases reales de producto."
+      },
+      {
+        "title": "Producto y features",
+        "description": "Me engancha traducir objetivos de producto en funcionalidad que se pueda publicar y usar bien."
+      },
+      {
+        "title": "UI y UX sólida",
+        "description": "Mi rol es desarrollo, pero asumo calidad de interfaz cuando no hay diseñador dedicado."
+      },
+      {
+        "title": "Sistemas de diseño",
+        "description": "Componentes reutilizables, patrones compartidos y coherencia visual a escala."
+      },
+      {
+        "title": "Node y serverless",
+        "description": "Endpoints ligeros o funciones serverless si el producto lo pide; no es mi foco en bases de datos ni infra: el frontend sigue siendo el centro."
+      },
+      {
+        "title": "Rendimiento y calidad",
+        "description": "Rendimiento web práctico, criterio de accesibilidad y código que aguanta el paso del tiempo."
+      }
+    ]
+  },
+  "contact": {
+    "kicker": "Contacto",
+    "title1": "Para hablarlo con calma,",
+    "title2": "un email basta",
+    "description": "Da igual si es por un proyecto, una colaboración o encajar con un equipo: escríbeme cuando te encaje. Con un poco de contexto basta; lo demás se ve sobre la marcha.",
+    "email": "maridelboccio@gmail.com"
   }
 }
