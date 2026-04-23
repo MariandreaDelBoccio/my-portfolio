@@ -1,0 +1,73 @@
+{
+  "hero": {
+    "title": "I create interfaces",
+    "subtitle": "to fall in love with",
+    "description": "Frontend Developer & UX/UI Designer creating memorable digital experiences with clean code and user-centered design.",
+    "cta1": "View projects",
+    "cta2": "Get to know me",
+    "available": "Available for projects"
+  },
+  "about": {
+    "title": "Where ",
+    "subtitle": "About me",
+    "subtitle.gradient": {
+      "design": "design ",
+      "separator": "meets ",
+      "code": "code"
+    },
+    "where": "Where design meets code",
+    "description": "I'm Mariandrea, a frontend developer and UX/UI designer passionate about creating digital experiences that not only look amazing but work flawlessly. I combine design thinking with clean and efficient code. My focus is on understanding users, prototyping creative solutions, and building interfaces that tell stories. Every pixel has a purpose, every interaction counts.",
+    "subdescription": "My focus is on understanding users, prototyping creative solutions, and building interfaces that tell stories. Every pixel has a purpose, every interaction counts."
+  },
+  "stats": {
+    "experience": "Years of experience",
+    "projects": "Projects delivered",
+    "clients": "Happy clients",
+    "awards": "Design awards"
+  },
+  "navbar": {
+    "title": "Mariandrea.dev",
+    "items": [
+      { "href": "#hero", "label": "Home" },
+      { "href": "#about", "label": "About" },
+      { "href": "#case-study", "label": "Case study" },
+      { "href": "#projects", "label": "Projects" },
+      { "href": "#skills", "label": "Skills" },
+      { "href": "#contact", "label": "Contact" }
+    ]
+  },
+  "scrollyCase": {
+    "ariaLabel": "Scroll-driven website redesign case study",
+    "kicker": "Case study",
+    "title": "From a legacy marketing site to a",
+    "titleGradient": "clearer, more product-led feel",
+    "subtitle": "MedBioinformatics: hierarchy, messaging, and components brought in line. Scroll inside the frame for the full capture; as you move down the page, before and after blend.",
+    "subtitleReduced": "MedBioinformatics: same comparison in two frames. Scroll inside each one to see the full capture.",
+    "step1Title": "Starting point",
+    "step1Body": "Dense information and a less guided first read—everything competing for attention at once.",
+    "step2Title": "Redesign & system",
+    "step2Body": "Typography, whitespace, and repeatable modules that match the product story.",
+    "step3Title": "Outcome",
+    "step3Body": "A researcher-first narrative and trust in the data, closer to a best-in-class SaaS presence.",
+    "beforeAlt": "MedBioinformatics site—previous version",
+    "afterAlt": "MedBioinformatics site—redesign proposal",
+    "scrollHint": "Keep scrolling the page to animate the before / after blend.",
+    "frameHint": "Scroll inside the frame to move through the full capture.",
+    "windowLabel": "full page",
+    "beforeLabel": "Before",
+    "afterLabel": "After",
+    "reducedHint": "No page-scroll animation (reduced motion).",
+    "visitSiteLabel": "View live site"
+  },
+  "projects": {
+    "title": "Projects",
+    "badge": "More projects",
+    "description": "Selected",
+    "subtitle": "work",
+    "scrollyIntro": "Beyond the case above: additional explorations in motion, analytics, and e‑commerce (placeholders for now)."
+  },
+  "skills": {
+    "title": "Skills",
+    "description": "Here are some of the skills I've developed."
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "title": "Diseño interfaces",
+    "subtitle": "que enamoran",
+    "description": "Frontend Developer & UX/UI Designer creando experiencias digitales memorables con código limpio y diseño centrado en el usuario.",
+    "cta1": "Ver proyectos",
+    "cta2": "Conóceme",
+    "available": "Disponible para proyectos"
+  },
+  "about": {
+    "subtitle": "Sobre mí",
+    "title": "Donde el ",
+    "subtitle.gradient": {
+      "design": "diseño ",
+      "separator": "se encuentra con el ",
+      "code": "código"
+    },
+    "description": "Soy Mariandrea, una desarrolladora frontend y diseñadora UX/UI apasionada por crear experiencias digitales que no solo se ven increíbles, sino que funcionan de manera impecable. Combino pensamiento de diseño con código limpio y eficiente. Mi enfoque se centra en entender a los usuarios, prototipar soluciones creativas y construir interfaces que cuentan historias. Cada pixel tiene un propósito, cada interacción cuenta.",
+    "subdescription": "Mi enfoque se centra en entender a los usuarios, prototipar soluciones creativas y construir interfaces que cuentan historias. Cada pixel tiene un propósito, cada interacción cuenta."
+  },
+  "stats": {
+    "experience": "Años de experiencia",
+    "projects": "Proyectos entregados",
+    "clients": "Clientes felices",
+    "awards": "Premios de diseño"
+  },
+  "navbar": {
+    "title": "Mariandrea.dev",
+    "items": [
+      { "href": "#hero", "label": "Inicio" },
+      { "href": "#about", "label": "Sobre mí" },
+      { "href": "#case-study", "label": "Caso real" },
+      { "href": "#projects", "label": "Proyectos" },
+      { "href": "#skills", "label": "Habilidades" },
+      { "href": "#contact", "label": "Contacto" }
+    ]
+  },
+  "scrollyCase": {
+    "ariaLabel": "Caso de rediseño web con desplazamiento",
+    "kicker": "Caso de estudio",
+    "title": "De una landing heredada a un producto",
+    "titleGradient": "más claro y creíble",
+    "subtitle": "MedBioinformatics: reorganización de jerarquía, mensaje y componentes. Dentro del recuadro verás la página completa (desplázate); al bajar la página, el antes y el después se mezclan.",
+    "subtitleReduced": "MedBioinformatics: misma comparación en dos ventanas. Desplázate dentro de cada recuadro para ver la captura entera.",
+    "step1Title": "Punto de partida",
+    "step1Body": "Mucha densidad, flujo poco guíado: el sitio explicaba mucho a la vez.",
+    "step2Title": "Rediseño y sistema",
+    "step2Body": "Tipografía, espacio en blanco y módulos repetibles alineados con el producto.",
+    "step3Title": "Resultado",
+    "step3Body": "Una narrativa orientada a investigadores y confianza en el dato, más cercana a un SaaS de referencia.",
+    "beforeAlt": "Captura del sitio anterior de MedBioinformatics",
+    "afterAlt": "Propuesta de rediseño del sitio de MedBioinformatics",
+    "scrollHint": "Sigue bajando la página para animar el contraste antes / después.",
+    "frameHint": "Dentro del marco, desplázate para recorrer la captura completa.",
+    "windowLabel": "vista completa",
+    "beforeLabel": "Antes",
+    "afterLabel": "Después",
+    "reducedHint": "Sin animación al bajar la página (modo accesible).",
+    "visitSiteLabel": "Ver el sitio en vivo"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "badge": "Más proyectos",
+    "description": "Trabajo",
+    "subtitle": "seleccionado",
+    "scrollyIntro": "Más allá del caso de arriba, otras piezas (placeholder) en animación, analítica y e‑commerce."
+  },
+  "skills": {
+    "title": "Habilidades",
+    "description": "Aquí están algunas de las habilidades que he desarrollado."
+  }
+}
