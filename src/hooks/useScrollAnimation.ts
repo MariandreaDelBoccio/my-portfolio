@@ -22,10 +22,6 @@ function clamp(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
 }
 
-/**
- * 0–1 mientras un contenedor alto (p. ej. min-h-[300vh]) hace scroll en viewport.
- * Pensado para secciones sticky tipo Apple: el padre mide mucho, el hijo fijo h-screen.
- */
 export function useScrollyProgress(
   trackRef: RefObject<HTMLElement | null>
 ) {

@@ -21,7 +21,6 @@ const HeroSection = () => {
         <img src={heroImg} alt="" className="w-full h-full object-cover" width={1920} height={1080} />
       </div>
 
-      {/* Gradient orbs */}
       <div
         className="absolute w-[600px] h-[600px] rounded-full bg-primary/20 blur-[120px] animate-pulse-glow"
         style={{ transform: `translate(${mouse.x * 30}px, ${mouse.y * 30}px)`, top: "10%", right: "10%" }}
@@ -31,7 +30,6 @@ const HeroSection = () => {
         style={{ transform: `translate(${mouse.x * -20}px, ${mouse.y * -20}px)`, bottom: "20%", left: "15%", animationDelay: "1.5s" }}
       />
 
-      {/* Content */}
       <div
         className="relative z-10 container mx-auto px-6 text-center transition-opacity duration-300 will-change-transform"
         style={{
@@ -69,7 +67,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 animate-fade-up stagger-5">
         <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2">
           <div className="w-1 h-2 rounded-full bg-primary animate-bounce" />

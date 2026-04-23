@@ -1,7 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-type Mode = "before" | "after" | "crossfade";
+type Mode = "before" | "after" | "crossfade" | "sequence";
+
+export type SequenceFrameImage = {
+  src: string;
+  intrinsicW: number;
+  intrinsicH: number;
+  alt: string;
+};
 
 type CaseScrollFrameProps = {
   mode: Mode;
@@ -11,19 +18,14 @@ type CaseScrollFrameProps = {
   afterAlt: string;
   beforeIntrinsicW: number;
   afterIntrinsicW: number;
+  beforeIntrinsicH?: number;
+  afterIntrinsicH?: number;
   intrinsicH: number;
-  /** 0 = antes, 1 = después (solo en mode crossfade) */
   crossfade?: number;
-  /** Etiqueta de la "barra de ventana" (opcional) */
+  sequenceImages?: SequenceFrameImage[];
+  sequenceProgress?: number;
   windowLabel?: string;
-  /**
-   * Ancho máximo en CSS (px) del carril de la captura. Por defecto = ancho nativo
-   * en modo before/after, o el menor de los dos en crossfade, para no submuestreoar.
-   * Si subes un PNG 2× (p. ej. 530px), ajusta también beforeIntrinsicW/afterIntrinsicW
-   * y deja un margen, o fija esto a ese ancho lógico.
-   */
   maxContentWidthPx?: number;
-  /** Altura mínima del contenido desplazable (p. ej. alinear Antes/Después en dos columnas) */
   minContentHeightPx?: number;
   className?: string;
 };
@@ -45,8 +47,12 @@ export function CaseScrollFrame({
   afterAlt,
   beforeIntrinsicW,
   afterIntrinsicW,
+  beforeIntrinsicH,
+  afterIntrinsicH,
   intrinsicH,
   crossfade = 0,
+  sequenceImages = [],
+  sequenceProgress = 0,
   windowLabel,
   maxContentWidthPx: maxContentWidthOverride,
   minContentHeightPx,
@@ -54,11 +60,13 @@ export function CaseScrollFrame({
 }: CaseScrollFrameProps) {
   const cap =
     maxContentWidthOverride ??
-    (mode === "before"
-      ? beforeIntrinsicW
-      : mode === "after"
-        ? afterIntrinsicW
-        : Math.min(beforeIntrinsicW, afterIntrinsicW));
+    (mode === "sequence" && sequenceImages.length > 0
+      ? Math.min(...sequenceImages.map((i) => i.intrinsicW))
+      : mode === "before"
+        ? beforeIntrinsicW
+        : mode === "after"
+          ? afterIntrinsicW
+          : Math.min(beforeIntrinsicW, afterIntrinsicW));
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const [w, setW] = useState(0);
@@ -73,13 +81,64 @@ export function CaseScrollFrame({
     return () => ro.disconnect();
   }, []);
 
-  const hBefore = contentHeight(w, beforeIntrinsicW, intrinsicH);
-  const hAfter = contentHeight(w, afterIntrinsicW, intrinsicH);
-  const naturalCrossfadeH = Math.max(hBefore, hAfter, 1);
-  const contentH = Math.max(naturalCrossfadeH, minContentHeightPx ?? 0);
+  const bH = beforeIntrinsicH ?? intrinsicH;
+  const aH = afterIntrinsicH ?? intrinsicH;
+  const hBefore = contentHeight(w, beforeIntrinsicW, bH);
+  const hAfter = contentHeight(w, afterIntrinsicW, aH);
+  const blend = Math.max(0, Math.min(1, crossfade));
+
+  const sequenceLayout =
+    mode === "sequence" && sequenceImages.length > 0 && w > 0
+      ? (() => {
+          const n = sequenceImages.length;
+          const heights = sequenceImages.map((im) =>
+            contentHeight(w, im.intrinsicW, im.intrinsicH)
+          );
+          const p = Math.max(0, Math.min(1, sequenceProgress));
+          const span = n > 1 ? n - 1 : 0;
+          const u = span > 0 ? p * span : 0;
+          const i = n === 1 ? 0 : Math.min(Math.floor(u), n - 1);
+          const t = n === 1 ? 0 : u - i;
+          let H: number;
+          if (n === 1) {
+            H = Math.max(1, heights[0] ?? 1);
+          } else {
+            const hi = heights[i] ?? 0;
+            const hj = heights[Math.min(i + 1, n - 1)] ?? hi;
+            if (t < 1e-4) {
+              H = Math.max(1, hi);
+            } else if (t > 1 - 1e-4) {
+              H = Math.max(1, hj);
+            } else {
+              H = Math.max(1, Math.max(hi, hj));
+            }
+          }
+          return { n, u, i, t, heights, H };
+        })()
+      : null;
+
+  const crossfadeH =
+    blend < 1e-4
+      ? Math.max(1, hBefore)
+      : blend > 1 - 1e-4
+        ? Math.max(1, hAfter)
+        : Math.max(1, hBefore, hAfter);
+
+  const contentH = (() => {
+    if (mode === "sequence" && sequenceLayout) {
+      return sequenceLayout.H;
+    }
+    if (mode === "crossfade") {
+      return Math.max(crossfadeH, minContentHeightPx ?? 0);
+    }
+    return Math.max(
+      Math.max(hBefore, hAfter, 1),
+      minContentHeightPx ?? 0
+    );
+  })();
+
   const fillBefore = Math.max(0, contentH - hBefore);
   const fillAfter = Math.max(0, contentH - hAfter);
-  const blend = Math.max(0, Math.min(1, crossfade));
 
   const beforeTargetH =
     mode === "before" && minContentHeightPx != null
@@ -115,7 +174,7 @@ export function CaseScrollFrame({
       </div>
       <div
         ref={scrollRef}
-        className="relative max-h-[min(64svh,600px)] touch-pan-y overflow-y-auto overflow-x-hidden overscroll-y-contain bg-white [scrollbar-color:hsl(240_5%_65%)_hsl(240_5%_92%)] [scrollbar-width:thin]"
+        className="relative max-h-[min(65svh,560px)] touch-pan-y overflow-y-auto overflow-x-hidden overscroll-y-contain bg-white [scrollbar-color:hsl(240_5%_65%)_hsl(240_5%_92%)] [scrollbar-width:thin]"
       >
         {mode === "before" && w > 0 && (
           <div
@@ -126,8 +185,8 @@ export function CaseScrollFrame({
               src={beforeSrc}
               alt={beforeAlt}
               width={beforeIntrinsicW}
-              height={intrinsicH}
-              className="m-0 block h-auto w-full max-w-none align-top"
+              height={bH}
+              className="case-capture-img m-0 block h-auto w-full max-w-none align-top"
               loading="lazy"
               decoding="async"
               draggable={false}
@@ -154,8 +213,8 @@ export function CaseScrollFrame({
               src={afterSrc}
               alt={afterAlt}
               width={afterIntrinsicW}
-              height={intrinsicH}
-              className="m-0 block h-auto w-full max-w-none align-top"
+              height={aH}
+              className="case-capture-img m-0 block h-auto w-full max-w-none align-top"
               loading="lazy"
               decoding="async"
               draggable={false}
@@ -183,8 +242,8 @@ export function CaseScrollFrame({
                 src={beforeSrc}
                 alt={beforeAlt}
                 width={beforeIntrinsicW}
-                height={intrinsicH}
-                className="m-0 block h-auto w-full max-w-none align-top"
+                height={bH}
+                className="case-capture-img m-0 block h-auto w-full max-w-none align-top"
                 loading="lazy"
                 decoding="async"
                 draggable={false}
@@ -206,8 +265,8 @@ export function CaseScrollFrame({
                 src={afterSrc}
                 alt={afterAlt}
                 width={afterIntrinsicW}
-                height={intrinsicH}
-                className="m-0 block h-auto w-full max-w-none align-top"
+                height={aH}
+                className="case-capture-img m-0 block h-auto w-full max-w-none align-top"
                 loading="lazy"
                 decoding="async"
                 draggable={false}
@@ -224,6 +283,57 @@ export function CaseScrollFrame({
           </div>
         )}
         {mode === "crossfade" && w === 0 && (
+          <div className="h-72 w-full animate-pulse bg-zinc-100" aria-hidden />
+        )}
+        {mode === "sequence" && w > 0 && sequenceLayout && (
+          <div className="relative w-full bg-white" style={{ height: contentH }}>
+            {sequenceImages.map((img, k) => {
+              const { n, i, t } = sequenceLayout;
+              const hLayer = sequenceLayout.heights[k] ?? 0;
+              const fill = Math.max(0, contentH - hLayer);
+              let op = 0;
+              if (n === 1) {
+                op = 1;
+              } else if (k < i) {
+                op = 0;
+              } else if (k > i + 1) {
+                op = 0;
+              } else if (k === i) {
+                op = 1 - t;
+              } else {
+                op = t;
+              }
+
+              return (
+                <div
+                  key={`${img.src}-${k}`}
+                  className="absolute left-0 top-0 w-full [font-size:0] leading-[0]"
+                  style={{ opacity: op, pointerEvents: "none" }}
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    width={img.intrinsicW}
+                    height={img.intrinsicH}
+                    className="case-capture-img m-0 block h-auto w-full max-w-none align-top"
+                    loading="lazy"
+                    decoding="async"
+                    draggable={false}
+                    sizes={`${Math.round(cap)}px`}
+                  />
+                  {fill > 0 && (
+                    <div
+                      className="m-0 block w-full bg-white"
+                      style={{ height: fill }}
+                      aria-hidden
+                    />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+        {mode === "sequence" && w === 0 && (
           <div className="h-72 w-full animate-pulse bg-zinc-100" aria-hidden />
         )}
       </div>

@@ -1,0 +1,1 @@
+export const CASE_FRAME_MAX_CONTENT_PX = 900;

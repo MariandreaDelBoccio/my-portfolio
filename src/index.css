@@ -36,7 +36,6 @@
 
     --radius: 0.75rem;
 
-    /* Custom tokens */
     --glow-primary: 16 85% 60%;
     --glow-accent: 330 70% 60%;
     --gradient-primary: linear-gradient(135deg, hsl(16 85% 60%), hsl(330 70% 60%));
@@ -161,5 +160,14 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .case-capture-img {
+    image-rendering: high-quality;
+  }
+  @supports not (image-rendering: high-quality) {
+    .case-capture-img {
+      image-rendering: auto;
+    }
   }
 }

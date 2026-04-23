@@ -15,7 +15,6 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="py-32 relative overflow-hidden">
-      {/* Floating shape */}
       <div
         className="absolute right-0 top-0 w-96 h-96 rounded-full bg-primary/5 blur-[80px]"
         style={{ transform: `translateY(${scroll * 0.1 - 200}px)` }}
