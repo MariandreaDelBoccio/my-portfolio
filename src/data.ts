@@ -17,12 +17,15 @@ export type Project = {
   image: string;
 };
 
+const pages = (repo: string) =>
+  `https://mariandreadelboccio.github.io/${repo}/`;
+
 export const projects: Project[] = [
   {
     id: "lumiere",
     number: "01",
     name: "LUMIÈRE",
-    href: "http://localhost:5180",
+    href: pages("mdb-lumiere"),
     port: 5180,
     tone: "blush",
     image:
@@ -32,7 +35,7 @@ export const projects: Project[] = [
     id: "miga",
     number: "02",
     name: "miga.",
-    href: "http://localhost:5181",
+    href: pages("mdb-miga"),
     port: 5181,
     tone: "lilac",
     image:
@@ -42,7 +45,7 @@ export const projects: Project[] = [
     id: "muse",
     number: "03",
     name: "MUSE",
-    href: "http://localhost:5176",
+    href: pages("mdb-muse"),
     port: 5176,
     tone: "ink",
     image:
@@ -52,7 +55,7 @@ export const projects: Project[] = [
     id: "casa",
     number: "04",
     name: "CASA MARÉ",
-    href: "http://localhost:5177",
+    href: pages("mdb-casa-mare"),
     port: 5177,
     tone: "sand",
     image:
@@ -62,7 +65,7 @@ export const projects: Project[] = [
     id: "mack",
     number: "05",
     name: "MACK & CO.",
-    href: "http://localhost:5178",
+    href: pages("mdb-mack-and-co"),
     port: 5178,
     tone: "sage",
     image:
@@ -72,7 +75,7 @@ export const projects: Project[] = [
     id: "brasa",
     number: "06",
     name: "BRASA",
-    href: "http://localhost:5182",
+    href: pages("mdb-brasa"),
     port: 5182,
     tone: "ember",
     image:
@@ -82,7 +85,7 @@ export const projects: Project[] = [
     id: "kai",
     number: "07",
     name: "KAI",
-    href: "http://localhost:5183",
+    href: pages("mdb-kai"),
     port: 5183,
     tone: "soy",
     image:

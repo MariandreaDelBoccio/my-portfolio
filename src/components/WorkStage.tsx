@@ -125,12 +125,15 @@ export function WorkStage() {
                   <h2 className="work-reel-name">{project.name}</h2>
                   <p className="work-reel-cat">{copy.category}</p>
                   <p className="work-reel-blurb">{copy.blurb}</p>
-                  <span
-                    className="work-reel-cta is-soon"
-                    aria-disabled="true"
+                  <a
+                    className="work-reel-cta"
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    tabIndex={isActive ? 0 : -1}
                   >
                     {t.work.open}
-                  </span>
+                  </a>
                 </div>
               </article>
             );

@@ -37,7 +37,7 @@ const en = {
   frameNav: ["Work", "Proof", "Services", "Contact"],
   work: {
     title: "Seven worlds, one studio.",
-    open: "Soon",
+    open: "Enter",
   },
   play: {
     title: "Make it yours. Right here.",
@@ -228,7 +228,7 @@ const es: typeof en = {
   frameNav: ["Trabajo", "Pruebas", "Servicios", "Contacto"],
   work: {
     title: "Siete mundos, un estudio.",
-    open: "Pronto",
+    open: "Entrar",
   },
   play: {
     title: "Hazla tuya. Aquí mismo.",

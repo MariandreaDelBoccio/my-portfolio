@@ -746,15 +746,6 @@ button {
   border-color: var(--ivory);
 }
 
-.work-reel-cta.is-soon,
-.work-reel-cta.is-soon:hover {
-  background: transparent;
-  color: rgba(246, 241, 234, 0.55);
-  border-color: rgba(246, 241, 234, 0.35);
-  cursor: default;
-  pointer-events: none;
-}
-
 .work-reel-rail {
   position: absolute;
   top: calc(var(--nav-h) + 20px);
