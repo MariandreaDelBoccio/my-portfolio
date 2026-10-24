@@ -89,7 +89,6 @@ export function Chapters() {
           {t.contact.cta}
         </a>
         <p className="contact-mail">{t.contact.email}</p>
-        <p className="note">{t.contact.note}</p>
       </section>
     </>
   );

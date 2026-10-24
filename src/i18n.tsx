@@ -22,12 +22,12 @@ const en = {
   menu: { open: "Menu", close: "Close" },
   langLabel: "Language",
   hero: {
-    tagline: "cute websites for cute businesses",
+    tagline: "Cute websites for cute businesses",
     cta: "Enter the work",
     scroll: "Scroll",
   },
   beats: {
-    hero: { title: "cute websites for cute businesses", text: "Make. Design. Build." },
+    hero: { title: "Cute websites for cute businesses", text: "Make. Design. Build." },
     frame: { title: "Every site starts as a blank frame.", text: "Lines first. Decisions later." },
     type: { title: "Type that ships, not just a mock.", text: "The brand lands in the page." },
     color: { title: "Then the brand moves in.", text: "Color, rhythm, a point of view." },
@@ -161,7 +161,7 @@ const en = {
   contact: {
     title: "Let’s make something soft and sharp.",
     text: "New shops, hotels, and brand sites. Tell me what you’re building.",
-    email: "hello@mdb.studio",
+    email: "maridelboccio@gmail.com",
     cta: "Write to me",
     note: "Portfolio demos — replace with your real inbox when you go live.",
   },
@@ -218,7 +218,7 @@ const es: typeof en = {
     scroll: "Scroll",
   },
   beats: {
-    hero: { title: "webs bonitas para negocios bonitos", text: "Make. Design. Build." },
+    hero: { title: "Webs bonitas para negocios bonitos", text: "Make. Design. Build." },
     frame: { title: "Toda web empieza en un marco en blanco.", text: "Primero las líneas. Las decisiones, después." },
     type: { title: "Tipografía que llega a producción, no solo al mock.", text: "La marca aterriza en la página." },
     color: { title: "Y entonces entra la marca.", text: "Color, ritmo, un punto de vista." },
@@ -352,7 +352,7 @@ const es: typeof en = {
   contact: {
     title: "Hagamos algo suave y preciso.",
     text: "Tiendas nuevas, hoteles y sitios de marca. Cuéntame qué estás construyendo.",
-    email: "hello@mdb.studio",
+    email: "maridelboccio@gmail.com",
     cta: "Escríbeme",
     note: "Demos de portfolio — cambia esto por tu correo real cuando publiques.",
   },
