@@ -127,9 +127,9 @@ const en = {
       {
         id: "kai",
         name: "KAI",
-        proves: "Ramen that comes apart layer by layer, then packs itself to go.",
-        why: "No restaurant theme ties one scroll to a 3D bowl that explodes, reassembles and closes a box.",
-        metric: "R3F sticky timeline · explode · box · WebGL fallback",
+        proves: "Ramen that comes apart layer by layer, then gets served at the counter under a lantern.",
+        why: "No restaurant theme ties one scroll to a 3D bowl that explodes, reassembles and ends lit by a paper lantern.",
+        metric: "R3F sticky timeline · explode · counter · lantern · WebGL fallback",
       },
     ],
   },
@@ -196,7 +196,7 @@ const en = {
     },
     kai: {
       category: "Ramen bar",
-      blurb: "The bowl comes apart, comes back together and shuts itself in a box. A template cannot fake it.",
+      blurb: "The bowl comes apart, comes back together and lands on a counter under a lantern that lights up. A template cannot fake it.",
     },
   },
 };
@@ -318,9 +318,9 @@ const es: typeof en = {
       {
         id: "kai",
         name: "KAI",
-        proves: "Ramen que se desarma capa a capa y se empaqueta solo para llevar.",
-        why: "Ningún tema de restaurante enlaza un scroll con un bowl 3D que explota, se rearma y cierra una caja.",
-        metric: "Timeline R3F sticky · explode · caja · fallback WebGL",
+        proves: "Ramen que se desarma capa a capa y termina servido en la barra bajo un farol.",
+        why: "Ningún tema de restaurante enlaza un scroll con un bowl 3D que explota, se rearma y termina bajo un farol encendido.",
+        metric: "Timeline R3F sticky · explode · barra · farol · fallback WebGL",
       },
     ],
   },
@@ -387,7 +387,7 @@ const es: typeof en = {
     },
     kai: {
       category: "Ramen bar",
-      blurb: "El bowl se desarma, se vuelve a armar y se cierra solo en una caja. Una plantilla no lo finge.",
+      blurb: "El bowl se desarma, se vuelve a armar y aterriza en una barra bajo un farol que se enciende. Una plantilla no lo finge.",
     },
   },
 };
