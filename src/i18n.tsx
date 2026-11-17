@@ -22,21 +22,21 @@ const en = {
   menu: { open: "Menu", close: "Close" },
   langLabel: "Language",
   hero: {
-    tagline: "Cute websites for cute businesses",
+    tagline: "Quiet digital spaces.",
     cta: "Enter the work",
     scroll: "Scroll",
   },
   beats: {
-    hero: { title: "Cute websites for cute businesses", text: "Make. Design. Build." },
+    hero: { title: "Quiet digital spaces.", text: "Design · Build · Detail · Harmony" },
     frame: { title: "Every site starts as a blank frame.", text: "Lines first. Decisions later." },
     type: { title: "Type that ships, not just a mock.", text: "The brand lands in the page." },
     color: { title: "Then the brand moves in.", text: "Color, rhythm, a point of view." },
-    open: { title: "Step inside the work.", text: "Seven worlds, one studio." },
+    open: { title: "Step inside the work.", text: "Three worlds, one studio." },
   } satisfies Record<BeatKey, { title: string; text: string }>,
   introAria: "A browser frame is drawn, typeset and painted as you scroll, then opens into the work",
   frameNav: ["Work", "Proof", "Services", "Contact"],
   work: {
-    title: "Seven worlds, one studio.",
+    title: "Three worlds, one studio.",
     open: "Enter",
   },
   play: {
@@ -47,7 +47,7 @@ const en = {
     name: { label: "Café name", placeholder: "Pocillo" },
     palette: {
       label: "Palette",
-      items: { blush: "Blush", lilac: "Lilac", sage: "Sage", espresso: "Espresso" },
+      items: { cream: "Cream", stone: "Stone", burgundy: "Burgundy", espresso: "Espresso" },
     },
     type: {
       label: "Type",
@@ -83,39 +83,11 @@ const en = {
     lead: "Pretty is easy to prompt. Interaction with taste is not.",
     items: [
       {
-        id: "lumiere",
-        name: "LUMIÈRE",
-        proves: "Full ecommerce craft — filters, PDP, cart states.",
-        why: "A theme ships components. It does not ship a quiet skincare rhythm.",
-        metric: "Target: Lighthouse ≥ 90 · bilingual cart",
-      },
-      {
         id: "miga",
         name: "miga.",
         proves: "Scrollytelling + cake builder with shareable state.",
         why: "No Shopify theme syncs layer storytelling with live price and URL config.",
         metric: "Sticky + IntersectionObserver · reduced-motion safe",
-      },
-      {
-        id: "muse",
-        name: "MUSE",
-        proves: "Editorial fashion composition.",
-        why: "Lookbooks and grids that feel adult — not a product dump.",
-        metric: "Editorial grids · bilingual shop",
-      },
-      {
-        id: "casa",
-        name: "CASA MARÉ",
-        proves: "Atmosphere that shifts with the visitor’s hour.",
-        why: "Templates do not change light with the day or ritualize booking errors.",
-        metric: "Day / dusk / night tokens · booking validation",
-      },
-      {
-        id: "mack",
-        name: "MACK & CO.",
-        proves: "Subscription UX with a strong pet brand.",
-        why: "Recurring boxes need states, not just a pretty home.",
-        metric: "Shop + subscribe flow",
       },
       {
         id: "brasa",
@@ -134,34 +106,34 @@ const en = {
     ],
   },
   services: {
-    title: "Make. Design. Build.",
+    title: "Design · Build · Detail · Harmony",
     items: [
-      {
-        word: "Make",
-        name: "Custom interaction",
-        text: "Scrollytelling, builders, 3D and motion systems a theme will never ship.",
-      },
       {
         word: "Design",
         name: "Web design and UI / UX",
-        text: "Type, color and rhythm — plus the parts people touch: carts, booking, empty states.",
+        text: "Type, color and rhythm — and the parts people touch: carts, booking, empty states.",
       },
       {
         word: "Build",
         name: "Development",
         text: "React, TypeScript and interfaces that actually work on a phone.",
       },
+      {
+        word: "Detail",
+        name: "Custom interaction",
+        text: "Scrollytelling, builders, 3D and motion systems a theme will never ship.",
+      },
     ],
   },
   about: {
-    title: "A one-person studio for brands with taste.",
-    text: "m.d.b. is Mariandrea Del Boccio — Make. Design. Build. Based in Barcelona, working worldwide. I make the kind of sites people save, share, and remember.",
-    script: "good code, pretty things",
+    title: "A one-person studio for brands with presence.",
+    text: "AUREA is Mariandrea Del Boccio. Based in Barcelona, working worldwide. I design and build digital spaces with quiet weight — the kind people stay with.",
+    script: "Quiet digital spaces.",
   },
   contact: {
-    title: "Let’s make something soft and sharp.",
+    title: "Let’s make something lasting.",
     text: "New shops, hotels, and brand sites. Tell me what you’re building.",
-    email: "maridelboccio@gmail.com",
+    email: "hello@mdb.studio",
     cta: "Write to me",
     note: "Portfolio demos — replace with your real inbox when you go live.",
   },
@@ -170,25 +142,9 @@ const en = {
     location: "Barcelona / Worldwide",
   },
   projects: {
-    lumiere: {
-      category: "Skincare",
-      blurb: "Cream and blush. A quiet shop with filters, product pages, and a cart.",
-    },
     miga: {
       category: "Bakery",
       blurb: "Layered scrollytelling and a cake builder — story and shop in one scroll.",
-    },
-    muse: {
-      category: "Boutique",
-      blurb: "Editorial fashion. Less cute, more still — lookbooks and new arrivals.",
-    },
-    casa: {
-      category: "Hotel",
-      blurb: "Light that shifts with the hour. Rooms, gallery, and a ritual booking bar.",
-    },
-    mack: {
-      category: "Pets",
-      blurb: "Accessories, treats, toys — and a monthly subscription box.",
     },
     brasa: {
       category: "Ceramics",
@@ -213,21 +169,21 @@ const es: typeof en = {
   menu: { open: "Menú", close: "Cerrar" },
   langLabel: "Idioma",
   hero: {
-    tagline: "webs bonitas para negocios bonitos",
+    tagline: "Espacios digitales serenos.",
     cta: "Entrar al trabajo",
     scroll: "Scroll",
   },
   beats: {
-    hero: { title: "Webs bonitas para negocios bonitos", text: "Make. Design. Build." },
+    hero: { title: "Espacios digitales serenos.", text: "Diseño · Construcción · Detalle · Armonía" },
     frame: { title: "Toda web empieza en un marco en blanco.", text: "Primero las líneas. Las decisiones, después." },
     type: { title: "Tipografía que llega a producción, no solo al mock.", text: "La marca aterriza en la página." },
     color: { title: "Y entonces entra la marca.", text: "Color, ritmo, un punto de vista." },
-    open: { title: "Entra al trabajo.", text: "Siete mundos, un estudio." },
+    open: { title: "Entra al trabajo.", text: "Tres mundos, un estudio." },
   },
   introAria: "Un marco de navegador se dibuja, se compone y se pinta con el scroll, y luego se abre al trabajo",
   frameNav: ["Trabajo", "Pruebas", "Servicios", "Contacto"],
   work: {
-    title: "Siete mundos, un estudio.",
+    title: "Tres mundos, un estudio.",
     open: "Entrar",
   },
   play: {
@@ -238,7 +194,7 @@ const es: typeof en = {
     name: { label: "Nombre del café", placeholder: "Pocillo" },
     palette: {
       label: "Paleta",
-      items: { blush: "Rosa", lilac: "Lila", sage: "Salvia", espresso: "Espresso" },
+      items: { cream: "Crema", stone: "Piedra", burgundy: "Burdeos", espresso: "Espresso" },
     },
     type: {
       label: "Tipografía",
@@ -274,39 +230,11 @@ const es: typeof en = {
     lead: "Lo bonito se puede pedir a una IA. La interacción con criterio, no.",
     items: [
       {
-        id: "lumiere",
-        name: "LUMIÈRE",
-        proves: "Ecommerce completo — filtros, PDP, estados de carrito.",
-        why: "Un tema envía componentes. No envía el ritmo quieto de un skincare.",
-        metric: "Objetivo: Lighthouse ≥ 90 · carrito bilingüe",
-      },
-      {
         id: "miga",
         name: "miga.",
         proves: "Scrollytelling + configurador con estado compartible.",
         why: "Ningún tema sincroniza capas narradas con precio en vivo y URL.",
         metric: "Sticky + IntersectionObserver · reduced-motion",
-      },
-      {
-        id: "muse",
-        name: "MUSE",
-        proves: "Composición editorial de moda.",
-        why: "Lookbooks y grids adultos — no un catálogo tirado.",
-        metric: "Grids editoriales · shop bilingüe",
-      },
-      {
-        id: "casa",
-        name: "CASA MARÉ",
-        proves: "Atmósfera que cambia con la hora del visitante.",
-        why: "Las plantillas no cambian la luz del día ni ritualizan la reserva.",
-        metric: "Tokens día / atardecer / noche · validación",
-      },
-      {
-        id: "mack",
-        name: "MACK & CO.",
-        proves: "UX de suscripción con marca pet fuerte.",
-        why: "Una caja recurrente necesita estados, no solo un home bonito.",
-        metric: "Flujo shop + subscribe",
       },
       {
         id: "brasa",
@@ -325,34 +253,34 @@ const es: typeof en = {
     ],
   },
   services: {
-    title: "Make. Design. Build.",
+    title: "Diseño · Construcción · Detalle · Armonía",
     items: [
       {
-        word: "Make",
-        name: "Interacción a medida",
-        text: "Scrollytelling, configuradores, 3D y sistemas de motion que un tema no envía.",
-      },
-      {
-        word: "Design",
+        word: "Diseño",
         name: "Diseño web y UI / UX",
         text: "Tipo, color y ritmo — y lo que la gente toca: carritos, reservas, estados vacíos.",
       },
       {
-        word: "Build",
+        word: "Construcción",
         name: "Desarrollo",
         text: "React, TypeScript e interfaces que de verdad funcionan en el móvil.",
+      },
+      {
+        word: "Detalle",
+        name: "Interacción a medida",
+        text: "Scrollytelling, configuradores, 3D y sistemas de motion que un tema no envía.",
       },
     ],
   },
   about: {
-    title: "Un estudio de una persona para marcas con gusto.",
-    text: "m.d.b. es Mariandrea Del Boccio — Make. Design. Build. Desde Barcelona, para cualquier sitio. Hago el tipo de páginas que la gente guarda, comparte y recuerda.",
-    script: "good code, pretty things",
+    title: "Un estudio de una persona para marcas con presencia.",
+    text: "AUREA es Mariandrea Del Boccio. Desde Barcelona, para cualquier sitio. Diseño y construyo espacios digitales con peso sereno — del tipo en el que la gente se queda.",
+    script: "Espacios digitales serenos.",
   },
   contact: {
-    title: "Hagamos algo suave y preciso.",
+    title: "Hagamos algo que dure.",
     text: "Tiendas nuevas, hoteles y sitios de marca. Cuéntame qué estás construyendo.",
-    email: "maridelboccio@gmail.com",
+    email: "hello@mdb.studio",
     cta: "Escríbeme",
     note: "Demos de portfolio — cambia esto por tu correo real cuando publiques.",
   },
@@ -361,25 +289,9 @@ const es: typeof en = {
     location: "Barcelona / Worldwide",
   },
   projects: {
-    lumiere: {
-      category: "Skincare",
-      blurb: "Crema y rosa. Una tienda quieta con filtros, fichas y carrito.",
-    },
     miga: {
       category: "Pastelería",
       blurb: "Scrollytelling por capas y un configurador de pastel — historia y compra en un solo scroll.",
-    },
-    muse: {
-      category: "Boutique",
-      blurb: "Moda editorial. Menos cute, más still — lookbooks y novedades.",
-    },
-    casa: {
-      category: "Hotel",
-      blurb: "Luz que cambia con la hora. Habitaciones, galería y una reserva como ritual.",
-    },
-    mack: {
-      category: "Mascotas",
-      blurb: "Accesorios, snacks, juguetes — y una caja de suscripción mensual.",
     },
     brasa: {
       category: "Cerámica",
@@ -404,7 +316,7 @@ const I18nContext = createContext<I18nValue | null>(null);
 
 function readLang(): Lang {
   if (typeof window === "undefined") return "es";
-  const saved = window.localStorage.getItem("mdb-lang");
+  const saved = window.localStorage.getItem("aurea-lang");
   if (saved === "en" || saved === "es") return saved;
   return navigator.language.toLowerCase().startsWith("es") ? "es" : "en";
 }
@@ -413,7 +325,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(readLang);
 
   const setLang = (next: Lang) => {
-    window.localStorage.setItem("mdb-lang", next);
+    window.localStorage.setItem("aurea-lang", next);
     setLangState(next);
   };
 

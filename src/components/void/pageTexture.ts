@@ -22,13 +22,13 @@ export type PageCopy = {
 
 type Rect = [number, number, number, number];
 
-const VOID = "#171310";
-const IVORY = "246,241,234";
-const INK = "26,26,26";
-const BLUSH = "#F0D4D4";
-const BLUSH_WET = "#dca3a3";
-const LILAC = "#DDD6EA";
-const SAGE = "#D4D8C6";
+const VOID = "#EDE6DC";
+const IVORY = "243,237,228";
+const INK = "42,33,28";
+const BLUSH = "#5C2430";
+const BLUSH_WET = "#3A161E";
+const LILAC = "#C9B8A8";
+const SAGE = "#B7B49F";
 
 const clamp01 = (x: number) => Math.min(1, Math.max(0, x));
 const seg = (p: number, a: number, b: number) => clamp01((p - a) / (b - a));
@@ -162,9 +162,10 @@ export function paintPage(
     ctx.closePath();
   };
 
-  const content = (dark: boolean) => {
-    const rgb = dark ? INK : IVORY;
-    const line = `rgba(${rgb},${dark ? 0.62 : 0.5})`;
+  const content = (onBurgundy: boolean) => {
+    // Burgundy ground needs cream type — never ink-on-burgundy.
+    const rgb = onBurgundy ? IVORY : INK;
+    const line = `rgba(${rgb},${onBurgundy ? 0.7 : 0.5})`;
     ctx.lineWidth = lw;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
@@ -210,10 +211,10 @@ export function paintPage(
       // nav labels + small brand
       const nAlpha = seg(s.type, 0.1, 0.5);
       ctx.globalAlpha = nAlpha;
-      ctx.font = `700 ${fsNav * 1.25}px "Manrope", sans-serif`;
+      ctx.font = `600 ${fsNav * 1.45}px "Cormorant Garamond", Georgia, serif`;
       const [bx, by, , bh] = px(g.brand);
       ctx.fillText(copy.brand, bx, by + bh * 0.9);
-      ctx.font = `600 ${fsNav}px "Manrope", sans-serif`;
+      ctx.font = `600 ${fsNav}px "Outfit", sans-serif`;
       g.nav.forEach((r, i) => {
         const label = copy.nav[i];
         if (label) ctx.fillText(label, r[0] * w, r[1] * h + fsNav * 0.8);
@@ -221,7 +222,7 @@ export function paintPage(
       ctx.globalAlpha = 1;
 
       // tagline typed
-      ctx.font = `600 ${fsTag}px "Bricolage Grotesque", "Manrope", sans-serif`;
+      ctx.font = `600 ${fsTag}px "Cormorant Garamond", "Outfit", sans-serif`;
       const typed = copy.tagline.slice(
         0,
         Math.round(copy.tagline.length * seg(s.type, 0.15, 0.85)),
@@ -237,7 +238,7 @@ export function paintPage(
       // CTA label
       const [cx, cy, cw2, ch] = px(g.cta);
       ctx.globalAlpha = seg(s.type, 0.6, 1);
-      ctx.font = `700 ${fsCta}px "Manrope", sans-serif`;
+      ctx.font = `700 ${fsCta}px "Outfit", sans-serif`;
       const label = copy.cta.toUpperCase();
       const lwid = ctx.measureText(label).width;
       ctx.fillText(label, cx + (cw2 - lwid) / 2, cy + ch / 2 + fsCta * 0.35);

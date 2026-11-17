@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useI18n } from "../i18n";
 
-const PALETTES = ["blush", "lilac", "sage", "espresso"] as const;
+const PALETTES = ["cream", "stone", "burgundy", "espresso"] as const;
 const TYPES = ["soft", "fine", "grotesk"] as const;
 const SHAPES = ["sharp", "soft", "pill"] as const;
 
@@ -12,7 +12,7 @@ type Shape = (typeof SHAPES)[number];
 const TYPE_FONT: Record<Type, string> = {
   soft: '"Fraunces", Georgia, serif',
   fine: '"Instrument Serif", Georgia, serif',
-  grotesk: '"Bricolage Grotesque", "Manrope", system-ui, sans-serif',
+  grotesk: '"Outfit", system-ui, sans-serif',
 };
 
 const pick = <T,>(list: readonly T[]) => list[Math.floor(Math.random() * list.length)];
@@ -99,7 +99,7 @@ export function Playground() {
   const { t } = useI18n();
   const p = t.play;
 
-  const [palette, setPalette] = useState<Palette>("blush");
+  const [palette, setPalette] = useState<Palette>("cream");
   const [type, setType] = useState<Type>("soft");
   const [shape, setShape] = useState<Shape>("soft");
   const [raw, setRaw] = useState("");

@@ -26,7 +26,7 @@ function useReveal() {
   }, []);
 }
 
-const HL = ["blush", "lilac", "sage"] as const;
+const HL = ["blush", "lilac", "sage"] as const; // mapped to burgundy / stone accents in CSS
 
 export function Chapters() {
   const { t } = useI18n();
@@ -72,7 +72,7 @@ export function Chapters() {
         </ol>
       </section>
 
-      <section className="about" id="about" data-surface="light">
+      <section className="about" id="about" data-surface="dark">
         <h2 data-reveal="rise">{t.about.title}</h2>
         <div className="about-side">
           <p>{t.about.text}</p>
@@ -89,6 +89,7 @@ export function Chapters() {
           {t.contact.cta}
         </a>
         <p className="contact-mail">{t.contact.email}</p>
+        <p className="note">{t.contact.note}</p>
       </section>
     </>
   );

@@ -46,7 +46,7 @@ function StaticFrame({ reason }: { reason: "reduced" | "nogl" }) {
     document.documentElement.style.setProperty("--hero", "0");
   }, []);
   return (
-    <section className="void-static" id="top" aria-label={t.introAria} data-surface="dark" data-reason={reason}>
+    <section className="void-static" id="top" aria-label={t.introAria} data-surface="light" data-reason={reason}>
       <div className="fb-frame">
         <div className="fb-bar" aria-hidden="true">
           <i />
@@ -57,9 +57,7 @@ function StaticFrame({ reason }: { reason: "reduced" | "nogl" }) {
         <div className="fb-screen">
           <div className="fb-image" aria-hidden="true" />
           <div className="fb-copy">
-            <h1 className="fb-word">
-              mdb<span>+</span>
-            </h1>
+            <h1 className="fb-word">AUREA</h1>
             <p className="fb-tag">{t.hero.tagline}</p>
             <EnterButton label={t.hero.cta} />
           </div>
@@ -111,7 +109,7 @@ function PinnedIntro() {
 
   const copy = useMemo(
     () => ({
-      brand: "mdb+",
+      brand: "AUREA",
       tagline: t.hero.tagline,
       cta: t.hero.cta,
       nav: t.frameNav,
@@ -120,7 +118,7 @@ function PinnedIntro() {
   );
 
   return (
-    <section className="void" id="top" ref={sectionRef} aria-label={t.introAria} data-surface="dark">
+    <section className="void" id="top" ref={sectionRef} aria-label={t.introAria} data-surface="light">
       <div
         className="void-sticky"
         ref={stickyRef}
@@ -145,9 +143,7 @@ function PinnedIntro() {
             wordRef.current = el;
           }}
         >
-          <span className="void-word-in">
-            mdb<span className="plus">+</span>
-          </span>
+          <span className="void-word-in">AUREA</span>
         </h1>
 
         <div className="void-beats">

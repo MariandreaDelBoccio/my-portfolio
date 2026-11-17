@@ -35,8 +35,8 @@ export function App() {
       <div className="grain" aria-hidden="true" />
 
       <header className="hdr">
-        <a className="mark" href="#top" onClick={go("top")} aria-label="mdb+">
-          mdb<span className="plus">+</span>
+        <a className="mark" href="#top" onClick={go("top")} aria-label="AUREA">
+          AUREA
         </a>
         <nav className="hdr-nav" aria-label="Primary">
           {navIds.map((id) => (
@@ -88,12 +88,10 @@ export function App() {
         <Chapters />
       </main>
 
-      <footer className="foot" data-surface="dark">
-        <span className="mark small">
-          mdb<span className="plus">+</span>
-        </span>
+      <footer className="foot" data-surface="light">
+        <span className="mark small">AUREA</span>
         <p>
-          © {new Date().getFullYear()} m.d.b. {t.footer.rights}
+          © {new Date().getFullYear()} AUREA. {t.footer.rights}
         </p>
         <p>{t.footer.location}</p>
       </footer>

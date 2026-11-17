@@ -1,14 +1,10 @@
-# mdb+ — Make. Design. Build.
+# studio/
 
-Studio landing for **m.d.b.** Live on GitHub Pages:
-
-**https://mariandreadelboccio.github.io/my-portfolio/**
+Landing de **AUREA** — portfolio y servicios. Bilingüe EN/ES.
 
 ```bash
 npm install
-npm run dev      # http://localhost:5179
-npm run build
-npm run deploy   # push dist/ to gh-pages
+npm run dev
 ```
 
-Bilingual EN / ES. Source of truth for day-to-day work may also live in the local `mdb/studio` workspace — this repo is what ships to Pages.
+Abre [http://localhost:5179](http://localhost:5179). Las demos: LUMIÈRE 5180, miga. 5181, MUSE 5176, CASA MARÉ 5177, MACK & CO. 5178, BRASA 5182, KAI 5183.

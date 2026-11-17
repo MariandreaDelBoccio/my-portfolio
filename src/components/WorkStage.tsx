@@ -1,50 +1,121 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, type PointerEvent as ReactPointerEvent } from "react";
 import { projects, type ProjectId } from "../data";
 import { useI18n } from "../i18n";
 import { useReducedMotion } from "../hooks";
 
-function easeOut(t: number) {
-  return 1 - (1 - t) * (1 - t);
-}
-
-function clamp01(n: number) {
-  return Math.min(1, Math.max(0, n));
-}
-
-function useMobile() {
-  const [mobile, setMobile] = useState(false);
+function useReveal() {
+  const root = useRef<HTMLElement | null>(null);
   useEffect(() => {
-    const sync = () =>
-      setMobile(window.matchMedia("(max-width: 720px)").matches);
-    sync();
-    window.addEventListener("resize", sync);
-    return () => window.removeEventListener("resize", sync);
+    const el = root.current;
+    if (!el) return;
+    document.documentElement.classList.add("reveal-ready");
+    const nodes = Array.from(el.querySelectorAll<HTMLElement>("[data-reveal]"));
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.08 },
+    );
+    nodes.forEach((n) => io.observe(n));
+    return () => io.disconnect();
   }, []);
-  return mobile;
+  return root;
+}
+
+function ProjectTile({
+  href,
+  name,
+  number,
+  category,
+  image,
+  openLabel,
+  reduced,
+  delay,
+}: {
+  href: string;
+  name: string;
+  number: string;
+  category: string;
+  image: string;
+  openLabel: string;
+  reduced: boolean;
+  delay: number;
+}) {
+  const media = useRef<HTMLSpanElement>(null);
+  const img = useRef<HTMLImageElement>(null);
+  const target = useRef({ x: 0, y: 0 });
+  const current = useRef({ x: 0, y: 0 });
+  const raf = useRef(0);
+
+  useEffect(() => {
+    if (reduced) return;
+    const tick = () => {
+      current.current.x += (target.current.x - current.current.x) * 0.12;
+      current.current.y += (target.current.y - current.current.y) * 0.12;
+      if (img.current) {
+        const hovering = Math.hypot(target.current.x, target.current.y) > 0.2;
+        const s = hovering ? 1.02 : 1;
+        img.current.style.transform = `translate3d(${current.current.x.toFixed(2)}px, ${current.current.y.toFixed(2)}px, 0) scale(${s})`;
+      }
+      raf.current = requestAnimationFrame(tick);
+    };
+    raf.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf.current);
+  }, [reduced]);
+
+  const onMove = (e: ReactPointerEvent<HTMLAnchorElement>) => {
+    if (reduced || !media.current) return;
+    const r = media.current.getBoundingClientRect();
+    const nx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+    const ny = ((e.clientY - r.top) / r.height - 0.5) * 2;
+    target.current = { x: nx * 6, y: ny * 4 };
+  };
+
+  const onLeave = () => {
+    target.current = { x: 0, y: 0 };
+  };
+
+  return (
+    <a
+      className="feat"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      onPointerMove={onMove}
+      onPointerLeave={onLeave}
+      data-reveal="rise"
+      style={{ transitionDelay: `${delay}ms` }}
+      aria-label={`${openLabel}: ${name}`}
+    >
+      <span className="feat-media" ref={media}>
+        <img ref={img} src={image} alt="" draggable={false} loading="lazy" />
+      </span>
+      <span className="feat-meta">
+        <span className="feat-tags">
+          <span className="feat-num">{number}</span>
+          <span aria-hidden>·</span>
+          <span>{category}</span>
+        </span>
+        <span className="feat-title">
+          <span className="feat-arrow" aria-hidden>
+            →
+          </span>
+          <span className="feat-name">{name}</span>
+        </span>
+      </span>
+    </a>
+  );
 }
 
 export function WorkStage() {
   const { t } = useI18n();
   const reduced = useReducedMotion();
-  const mobile = useMobile();
-  const [pinEl, setPinEl] = useState<HTMLDivElement | null>(null);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    if (!pinEl) return;
-    const onScroll = () => {
-      const rect = pinEl.getBoundingClientRect();
-      const total = pinEl.offsetHeight - window.innerHeight;
-      setProgress(clamp01(-rect.top / Math.max(1, total)));
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, [pinEl]);
+  const root = useReveal();
 
   useEffect(() => {
     projects.forEach((p) => {
@@ -53,108 +124,29 @@ export function WorkStage() {
     });
   }, []);
 
-  const count = projects.length;
-  const raw = progress * count;
-  const active = Math.min(count - 1, Math.floor(raw));
-  const local = raw - active;
-  const pinHeight = Math.max(220, count * (mobile ? 100 : 110));
-
   return (
-    <section id="work" className="work-reel" data-surface="dark">
-      <div
-        className="work-reel-pin"
-        ref={setPinEl}
-        style={{ height: `${pinHeight}vh` }}
-      >
-        <div className="work-reel-sticky">
-          {projects.map((project, i) => {
-            const distance = raw - i;
-            const isActive = i === active;
-            const enter = clamp01(1 - Math.abs(distance));
-            const opacity =
-              Math.abs(distance) > 1.05
-                ? 0
-                : isActive
-                  ? 1
-                  : distance > 0
-                    ? clamp01(1 - distance) * 0.45
-                    : clamp01(1 + distance);
-            const scale = reduced
-              ? 1
-              : isActive
-                ? 1.04 - easeOut(local) * 0.04
-                : 1.06;
-            const y = reduced ? 0 : clamp01(Math.abs(distance)) * (distance > 0 ? 6 : -4);
-            const copy = t.projects[project.id as ProjectId];
+    <section id="work" className="work" data-surface="light" ref={root}>
+      <header className="work-head" data-reveal="rise">
+        <h2>{t.work.title}</h2>
+      </header>
 
-            return (
-              <article
-                key={project.id}
-                className={`work-reel-slide tone-${project.tone}${isActive ? " is-active" : ""}`}
-                style={{
-                  opacity,
-                  zIndex: isActive ? 3 : Math.max(0, 2 - Math.round(Math.abs(distance))),
-                  pointerEvents: isActive ? "auto" : "none",
-                }}
-                aria-hidden={!isActive}
-              >
-                <div
-                  className="work-reel-media"
-                  style={{
-                    transform: `translate3d(0, ${y}vh, 0) scale(${scale})`,
-                  }}
-                >
-                  <img
-                    src={project.image}
-                    alt=""
-                    draggable={false}
-                    loading={i === 0 ? "eager" : "lazy"}
-                  />
-                  <div className="work-reel-grade" aria-hidden />
-                </div>
-
-                <div
-                  className="work-reel-copy"
-                  style={{
-                    opacity: isActive ? clamp01(0.25 + enter * 0.85) : 0,
-                    transform: isActive
-                      ? `translate3d(0, ${(1 - enter) * 24}px, 0)`
-                      : "translate3d(0, 28px, 0)",
-                  }}
-                >
-                  <h2 className="work-reel-name">{project.name}</h2>
-                  <p className="work-reel-cat">{copy.category}</p>
-                  <p className="work-reel-blurb">{copy.blurb}</p>
-                  <a
-                    className="work-reel-cta"
-                    href={project.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    tabIndex={isActive ? 0 : -1}
-                  >
-                    {t.work.open}
-                  </a>
-                </div>
-              </article>
-            );
-          })}
-
-          <aside className="work-reel-rail" aria-hidden>
-            <p className="work-reel-rail-title">{t.work.title}</p>
-            <ol className="work-reel-index">
-              {projects.map((project, i) => (
-                <li key={project.id} className={i === active ? "is-on" : ""}>
-                  <span>{project.number}</span>
-                  <em>{project.name}</em>
-                </li>
-              ))}
-            </ol>
-          </aside>
-
-          <div className="work-reel-progress" aria-hidden>
-            <i style={{ width: `${progress * 100}%` }} />
-          </div>
-        </div>
+      <div className="feat-grid">
+        {projects.map((project, i) => {
+          const copy = t.projects[project.id as ProjectId];
+          return (
+            <ProjectTile
+              key={project.id}
+              href={project.href}
+              name={project.name}
+              number={project.number}
+              category={copy.category}
+              image={project.image}
+              openLabel={t.work.open}
+              reduced={reduced}
+              delay={i * 40}
+            />
+          );
+        })}
       </div>
     </section>
   );

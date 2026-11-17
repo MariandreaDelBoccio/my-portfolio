@@ -30,9 +30,7 @@ const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 4);
 const seg = (p: number, a: number, b: number) => clamp01((p - a) / (b - a));
 
-const IVORY = [246, 241, 234];
-const INK = [26, 26, 26];
-const BLUSH = [240, 212, 212];
+const BURGUNDY = [92, 36, 48];
 const mix = (a: number[], b: number[], t: number) =>
   `rgb(${a.map((v, i) => Math.round(lerp(v, b[i], t))).join(",")})`;
 
@@ -89,7 +87,7 @@ function buildStrokes(d: Dim): Stroke[] {
   const mk = (pts: THREE.Vector3[], a: number, b: number): Stroke => {
     const geo = new THREE.BufferGeometry().setFromPoints(pts);
     geo.setDrawRange(0, 0);
-    const mat = new THREE.LineBasicMaterial({ color: "#f6f1ea", transparent: true, opacity: 0.92 });
+    const mat = new THREE.LineBasicMaterial({ color: "#5c2430", transparent: true, opacity: 0.92 });
     return { line: new THREE.Line(geo, mat), count: pts.length, a, b };
   };
   const out: Stroke[] = [];
@@ -259,9 +257,9 @@ function Piece({ progress, pointer, wordRef, copy }: SceneProps) {
       el.style.left = "0px";
       el.style.top = "0px";
       el.style.transform = `translate3d(${(x - (ww * s) / 2).toFixed(1)}px, ${(y - (wh * s) / 2).toFixed(1)}px, 0) scale(${s.toFixed(4)})`;
-      const ink = seg(p, 0.56, 0.62);
-      el.style.setProperty("--word", mix(IVORY, INK, ink));
-      el.style.setProperty("--plus", mix(BLUSH, INK, ink));
+      // Starts burgundy on cream; once paint lands, flips to cream on burgundy.
+      const CREAM = [243, 237, 228];
+      el.style.setProperty("--word", mix(BURGUNDY, CREAM, seg(p, 0.56, 0.62)));
       el.style.opacity = String(1 - seg(p, T.wordOut[0], T.wordOut[1]));
     }
   });
